@@ -7,7 +7,7 @@ extern _ExitProcess@4        ; Import: VOID ExitProcess(UINT uExitCode)
 section .data
     msg db "The number is: "         ; Message prefix to print before the number
     msg_len equ $ - msg              ; Calculate length of the message
-    x dq 987663424                   ; 64-bit number (QWORD) to convert to string
+    x dd 98766342                    ; 64-bit number (QWORD) to convert to string
     lungime_buffer dd 0              ; Variable to hold length of converted number string
 
 section .bss
@@ -34,7 +34,7 @@ _main:
 
     ; Convert the 64-bit number x to string in buffer (in reverse order)
     mov esi, buffer               ; ESI points to start of buffer
-    mov eax, [x]                 ; Load lower 32 bits of x into EAX (NOTE: This only converts lower DWORD!)
+    mov eax, [x]                  
 
 add_in_buffer:
     xor edx, edx                 ; Clear EDX before division
